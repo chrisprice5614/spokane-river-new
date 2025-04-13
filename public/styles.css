@@ -1,0 +1,238 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+    font-family: "stevie-sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.4em;
+}
+
+:root{
+    --background-color-light: #eee;
+    --background-color-dark: #d1b198;
+    --color-dark: #111;
+    --color-light: #333;
+    --color-primary: rgb(23, 108, 165);
+    --color-primary-active: rgb(67, 183, 187);
+    --color-secondary: rgb(60, 223, 122);
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--background-color-light);
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color-dark);
+    text-align: center;
+    padding: 12px 0;
+    border-bottom: 2px solid var(--color-dark);
+}
+
+header h1 {
+    font-family: "brevia", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    /*padding: y x*/
+    padding: 16px 12px;
+    font-size: xx-large;
+}
+
+
+h1 {
+    font-weight: 700;
+    /*padding: y x*/
+    padding: 16px 12px;
+    font-size: xx-large;
+}
+
+h2, h3, h4, h5, h6{
+    padding: 8px 0;
+}
+
+small{
+    color: var(--color-light)
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--color-primary-active);
+    text-decoration: underline;
+}
+
+.button, button {
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 4px;
+    color: var(--background-color-light);
+    padding: 6px 10px;
+    text-decoration: none;
+    font-size: medium;
+    width: auto;
+    height: auto;
+    margin: 0px 0px;
+    font-weight: 300;
+}
+
+.button:hover, button:hover {
+    background-color: var(--color-primary-active);
+    color: var(--background-color-light);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav a{
+    line-height: 3em;
+    background-color: none;
+    border: solid 1px;
+    border-radius: 4px;
+    color: var(--color-dark);
+    padding: 6px 10px;
+    text-decoration: none;
+    font-size: medium;
+    width: auto;
+    height: auto;
+    margin: 0px 0px;
+    font-weight: 400;
+}
+
+nav a:hover{
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+footer{
+    text-align: center;
+}
+
+main{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px 0;
+    border-bottom: 1.5px solid var(--color-light);
+}
+
+
+
+fieldset{
+    margin: 0;
+    border: 1.5px solid var(--color-dark);
+    border-radius: 4px;
+}
+
+legend{
+    font-weight: 500;
+}
+
+label{
+    padding: 4px 4px;
+    font-weight: 500;
+}
+
+label:after {
+    content:"\a";
+    white-space: pre;
+}
+
+input, textarea{
+    font-family: "stevie-sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 80%;
+    padding: 8px;
+    /*top right bottom left*/
+    margin: 8px 8px 8px 20px;
+    background-color: var(--background-color-light);
+    border-radius: 4px;
+    border: 1.5px solid var(--color-light);
+}
+
+textarea{
+    height: 320px;
+}
+
+input:active, textarea:active{
+    border: 2px solid var(--color-dark);
+}
+
+fieldset button{
+    margin: 8px;
+}
+
+b {
+    font-weight: 800;
+}
+
+.notice {
+    border: 2px solid var(--color-secondary);
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 6px;
+}
+
+.event-desc{
+    border: 1px solid var(--color-light);
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 6px;
+}
+
+
+.card{
+    border: 1px solid var(--color-light);
+    border-radius: 4px;
+    padding: 8px;
+    margin-top: 6px;
+    background-color: var(--background-color-dark);
+    box-shadow: 5px 5px 10px black;
+}
+
+.card:hover{
+    cursor: pointer;
+    background-color: var(--background-color-light);
+}
+
+.card h2{
+    font-weight: 800;
+}
+
+.ignore-css{all:unset;}
+
+
+.ignore-css:hover{all:unset; cursor: pointer;}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+@media only screen and (width<=720px){
+    main{
+        width: 90%;
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    
+}
+
+ul{
+    list-style-type: none;
+}

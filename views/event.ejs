@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include("includes/head") %>
+<body>
+    <%- include("includes/header") %>
+    <main>
+        <h1><%= event.title %></h1>
+        <small>On <b> <%= dayName %>, <%= new Date(event.date).getMonth()+1 %>/<%= new Date(event.date).getDate() %>/<%= new Date(event.date).getFullYear() %></b> at <b><%= new Date(event.date).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })%> </b></small>
+        <br>
+        <small><b>Location: </b><a href=<%= locale %> target="_blank"><%= event.location %></a></small>
+        <p class="event-desc"><%- event.content %></p>
+        <br>
+
+        <iframe width="100%" height="300px" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=<%= mapAddy%>&amp;ie=UTF8&amp;t=&amp;z=12&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br />
+        
+        <% if(admin) {%>
+            <a href="/edit-event/<%= event.id %>" class="button">Edit</a>
+            <a href="/delete-event/<%= event.id %>" class="button">Delete</a>
+        <% } %>
+
+    </main>
+
+    <%- include("includes/footer") %>
+
+    
+</body>
+
+
+
+</html>

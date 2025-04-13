@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("includes/head") %>
+<body>
+    <%- include("includes/header") %>
+    <main>
+        <h2>Edit Event</h2>
+        <form action="/edit-event/<%= event.id %>" method="POST">
+            <% errors.forEach(error => { %>
+                <p class="notice"><%= error %></p>
+            
+    
+            <% }) %>
+            <fieldset>
+                <legend>Create Event</legend>
+                <label for="title"><small>Title</small></label>
+                <input type="text" id="title" name="title" autocomplete="off" value="<%= event.title%>">
+                <br>
+
+                <label for="location"><small>Location</small></label>
+                <input type="text" id="location" name="location" autocomplete="off" value="<%= event.location%>">
+                <br>
+
+                <label for="date">Date & Time</label>
+                <input type="datetime-local" id="date" name="date" value="<%= event.date%>">
+                <br>
+
+                <label for="body"><small>Description</small></label>
+                <textarea name="body" id="body"><%= event.content %></textarea>
+
+                <br>
+                <button>Save Changes</button>
+            </fieldset>
+        </form>
+        
+    </main>
+
+    <%- include("includes/footer") %>
+
+    
+</body>
+</html>

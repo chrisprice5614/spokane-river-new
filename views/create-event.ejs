@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("includes/head") %>
+<body>
+    <%- include("includes/header") %>
+    <main>
+        <h2>Create Event</h2>
+        <p>Enter in any event coming up! FHE? Friday night activity? Dance? Write it down! For reference, the <b>Indiana Building</b> is <b>732 W Indiana Ave</b>, and the <b>Regina Building</b> is <b>401 W Regina Ave</b>. Please make sure to include the date and time. Add emojis to help the ward see the event! If you're on windows use <b>Windows + "."</b> to open the emoji window.</p>
+        <form action="/create-event" method="POST">
+            <% errors.forEach(error => { %>
+                <p class="notice"><%= error %></p>
+            
+    
+            <% }) %>
+            <fieldset>
+                <legend>Create Event</legend>
+                <label for="title"><small>Title</small></label>
+                <input type="text" id="title" name="title" autocomplete="off">
+                <br>
+
+                <label for="location"><small>Location</small></label>
+                <input type="text" id="location" name="location" autocomplete="off">
+                <br>
+
+                <label for="date">Date & Time</label>
+                <input type="datetime-local" id="date" name="date">
+                <br>
+
+                <label for="body"><small>Description</small></label>
+                <textarea name="body" id="body"></textarea>
+
+                <br>
+                <button>Create New Event</button>
+            </fieldset>
+        </form>
+        
+    </main>
+
+    <%- include("includes/footer") %>
+
+    
+</body>
+</html>

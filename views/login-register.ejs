@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("includes/head") %>
+<body>
+    <%- include("includes/header") %>
+    <main>
+        <% errors.forEach(error => { %>
+            <p class="notice"><%= error %></p>
+        
+
+        <% }) %>
+        <% if(register){ %>
+        <form action="/register" method="POST">            
+                <p>Accounts are not required for the Spokane River YSA! Accounts are for editing posts and events. Permission to edit posts and events will be granted upon request. The events will show without an account.</p>
+                <p>In the future, accounts will receive notifications for upcoming events.</p>
+                <fieldset>
+                    <legend>Create an account</legend>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" autocomplete="off">
+                    <br>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" autocomplete="off">
+                    <br>
+
+                    <label for="firstname">First Name</label>
+                    <input type="text" id="firstname" name="firstname" autocomplete="off">
+                    <br>
+
+                    <label for="lastname">Last Name</label>
+                    <input type="text" id="lastname" name="lastname" autocomplete="off">
+                    <br>
+    
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" autocomplete="off">
+    
+                    <br>
+                    <button>Register</button>
+                </fieldset>
+            </form>
+    
+            <h3>Already have an account?</h3>
+            <a href="/login" class="button">Log In</a>
+
+            <% } else { %>
+                <form action="/login" method="POST">
+                    <fieldset>
+                        <legend>Log In</legend>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" autocomplete="off">
+                        <br>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" autocomplete="off">
+        
+                        <br>
+                        <button>Log In</button>
+                    </fieldset>
+                </form>
+
+                <h3>Don't have an account?</h3>
+                <a href="/register" class="button">Register</a>
+
+            <% } %>
+    </main>
+
+    <%- include("includes/footer") %>
+
+    
+</body>
+</html>

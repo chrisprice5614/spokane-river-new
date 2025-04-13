@@ -1,0 +1,17 @@
+<header>
+    <h1>Spokane River YSA</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/events">Events</a>
+        <% if(user) { %>
+        <a href="/logout">Log Out</a>
+        <% } else { %>
+        <a href="/login">Log In</a>
+        <a href="/register">Register</a>
+        <% } %>
+        <% if(admin) { %>
+        <a href="/create-post">Create Post</a>
+        <a href="/create-event">Create Event</a>
+        <% } %>
+    </nav>
+</header>

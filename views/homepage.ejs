@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("includes/head") %>
+<body>
+    <%- include("includes/header") %>
+    <main>
+        <h1 style="text-align: center;">Welcome to the Spokane River YSA!</h1>
+        <div class="grid">
+            <div>
+                <h2>Join us for church!</h2>
+                <small><b>Sundays</b> at <b>1:30 PM</b></small>
+                <p><a href="https://www.google.com/maps/place/732+W+Indiana+Ave,+Spokane,+WA+99205" target="_blank">732 W Indiana Ave</a></p>
+                <p>Visitors are always welcome!</p>
+            </div>
+            <div>
+                <h2>Come to Institute!</h2>
+                <small><b>Thursdays</b> at <b>7:00 PM</b></small>
+                <br>
+                <small>Dinner at <b>6:30 PM</b></small>
+                <p><a href="https://www.google.com/maps/place/732+W+Indiana+Ave,+Spokane,+WA+99205" target="_blank">732 W Indiana Ave</a></p>
+            </div>
+            <div>
+                <h2>Healing Through Christ</h2>
+                <small><b>Wednesdays</b> at <b>7:00 PM</b></small>
+                <br>
+                <small>Not a class, but an open discussion/meeting.</small>
+                <p><b>Men: </b> meet upstairs in the Sitka Building <a href="https://www.google.com/maps/place/808+E+Sitka+Ave" target="_blank">808 E Sitka Ave.</a> For questions, contact <a href="sms:4803758541"><b>Elder Barton </b>(480)375-8541.</a></p>
+                <p><b>Women: </b> meet in the high council room in the Greenbluff Building <a href="https://www.google.com/maps/place/5302+E+Greenbluff+Rd+Colbert" target="_blank">5302 E Greenbluff Rd.</a> For questions, contact <a href="sms:4806951982"><b>Sister Barton </b>(480)695-1982.</a></p>
+            </div>
+            <div>
+                <h2>Tusday Night Activites</h2>
+                <small><b>Tuesdays</b> at <b>7:00 PM</b></small>
+                <br>
+                <small>Dinner at <b>6:30 PM</b></small>
+                <p><a href="https://www.google.com/maps/place/732+W+Indiana+Ave,+Spokane,+WA+99205" target="_blank">732 W Indiana Ave</a></p>
+                <small>Three options:</small>
+                <ul>
+                    <li>Emotional Resilliance</li>
+                    <li>Dating Class</li>
+                    <li>Activity In Gym</li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <% allPosts.forEach(thisPost => { %>
+            <article>
+                <h2><%= thisPost.title %></h2>
+                <div class="article">
+                    <body>
+                        <%- thisPost.content %>
+                    </body>
+                </div>
+                <% if(admin){ %>
+                    <form action="/delete-post/<%= thisPost.id %>" method="POST">
+                <button>Delete Post</button>
+            </form>
+                <% } %>
+    
+            </article>
+            <% }) %>
+
+            <%- include("includes/event-list") %>
+
+    </main>
+
+    <%- include("includes/footer") %>
+
+    
+</body>
+</html>

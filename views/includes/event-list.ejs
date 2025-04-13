@@ -1,0 +1,51 @@
+<h1>Upcoming Events</h1>
+
+<% allEvents.forEach(event => { 
+    var currentDate = new Date();
+
+    var difference = ((currentDate - new Date(event.date))/(1000*60*60))
+
+    console.log(difference);
+
+    var show = false;
+    var late = false;
+
+    if(difference < 3)
+    {
+        show = true;
+    }
+    else
+    {
+        late = true;
+    }
+
+    if(admin)
+    {
+        show = true;
+    }
+
+    if(show){
+    %>
+
+    <article class="card">
+        <% if(late) { %>
+            <a class="button" href="/delete-event/<%= event.id %>">Event has passed. Click on me to delete!</a></div>
+        <% } %>
+        <a href="/event/<%= event.id %>" class="ignore-css">
+        
+        <h2><%= event.title %></h2>
+        <small>On <b> <%= event.dayName %>, <%= new Date(event.date).getMonth()+1 %>/<%= new Date(event.date).getDate() %>/<%= new Date(event.date).getFullYear() %></b> at <b><%= new Date(event.date).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })%> </b></small>
+        <br>
+        <small><b>Location: </b></a><a href="<%= event.locale %>" target="_blank"><%= event.location %></a><a href="/event/<%= event.id %>" class="ignore-css"></small>
+        <div class="article">
+            <body>
+                <%- event.content %>
+            </body>
+        </div>
+        </a>
+        
+        
+    </article>
+</a>
+<br>
+<% }}) %>
