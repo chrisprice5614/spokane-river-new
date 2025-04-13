@@ -386,6 +386,9 @@ app.post("/register", (req, res) =>{
 
 //logging in
 app.post("/login", (req, res) => {
+
+    const register = false;
+
     let errors = []
 
     if (typeof req.body.username !== "string") req.body.username = ""
@@ -397,7 +400,7 @@ app.post("/login", (req, res) => {
     if(req.body.password == "") errors=["Invalid username/password"]
 
     if(errors.length) {
-        return res.render("login", {errors}) //returning to the login page while also passing the object "errors"
+        return res.render("login-register", {errors, register}) //returning to the login page while also passing the object "errors"
     }
 
     const userInQuestionStatement = db.prepare("SELECT * FROM users WHERE USERNAME = ?") //Select *(any) from 'name of table'
@@ -405,7 +408,7 @@ app.post("/login", (req, res) => {
 
     if(!userInQuestion) {
          errors=["Invalid username/password"]
-         return res.render("login", {errors})
+         return res.render("login-register", {errors ,register})
     }
 
 
@@ -413,7 +416,7 @@ app.post("/login", (req, res) => {
     if(!matchOrNot)
     {
         errors=["Invalid username/password"]
-        return res.render("login", {errors})
+        return res.render("login-register", {errors ,register})
     }
 
     // log the user in by giving them a cookie
